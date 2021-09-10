@@ -1,18 +1,31 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import styled from '@emotion/styled';
+
+const ContenedorResumen = styled.div`
+    padding: 1rem;
+    text-align: center;
+    background-color: #00838F;
+    color: #FFF;
+    margin-top: 1rem;
+    `;
+
+function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 
 const Resumen = ({datos}) => {
     // Extraer de datos
     const {marca, plan, year} = datos;
 
     return (
-        <Fragment>
+        <ContenedorResumen>
             <h2>Resumen de Cotización</h2>
             <ul>
-                <li>Marca: {marca}</li>
-                <li>Plan: {plan}</li>
-                <li>Año: {year}</li>
+                <li>Marca: {capitalize(marca)}</li>
+                <li>Plan: {capitalize(plan)}</li>
+                <li>Año: {(year)}</li>
             </ul>
-        </Fragment>
+        </ContenedorResumen>
      );
 }
  

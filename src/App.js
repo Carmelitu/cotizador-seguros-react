@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import Header from './components/Header';
 import styled from '@emotion/styled';
 import Formulario from './components/Formulario';
 import Resumen from './components/Resumen';
+import Resultado from './components/Resultado';
 
 const Contenedor = styled.div`
   max-width: 600px;
@@ -18,7 +19,7 @@ const ContenedorForm = styled.div`
 function App() {
 
   const [resumen, setResumen] = useState({});
-  const {datos} = resumen;
+  const {datos, cotizacion} = resumen;
 
   return (
     <Contenedor>
@@ -29,7 +30,11 @@ function App() {
           setResumen={setResumen}
         />
 
-        {datos ? <Resumen datos={datos} /> : null}
+        {datos ? 
+        <Fragment>
+        <Resumen datos={datos} /> <Resultado cotizacion={cotizacion} />
+        </Fragment>
+         : null}
       </ContenedorForm>
 
     </Contenedor>
