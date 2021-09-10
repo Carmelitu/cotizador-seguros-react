@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 import {calcularMarca, obtenerDiferencia, obtenerPlan} from '../helper.js'
 
 const Campo = styled.div`
@@ -51,7 +52,7 @@ const Error = styled.div`
     margin-bottom: 2rem;
 `;
 
-const Formulario = ({setResumen}) => {
+const Formulario = ({setResumen, setSpinner}) => {
 
     const [datos, setDatos] = useState({
         marca: '',
@@ -97,13 +98,17 @@ const Formulario = ({setResumen}) => {
         // Basico Auementa 20% - Completo 50%
         const incrementoPlan = obtenerPlan(plan);
         resultado = parseFloat(incrementoPlan * resultado).toFixed(2);
-        // Total
-        setResumen({
-            cotizacion: resultado,
-            datos
-        })
 
-        return resultado;
+        setSpinner(true);
+        setTimeout(() => {
+            // Total
+            setResumen({
+                cotizacion: resultado,
+                datos
+            });
+            
+            setSpinner(false);
+        }, 3000);
 
     }
 
@@ -169,6 +174,11 @@ const Formulario = ({setResumen}) => {
             <Boton type="submit">Cotizar</Boton>
         </form>
      );
+}
+
+Formulario.propTypes = {
+    setResumen: PropTypes.func.isRequired,
+    setSpinner: PropTypes.func.isRequired
 }
  
 export default Formulario;

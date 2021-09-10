@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import Formulario from './components/Formulario';
 import Resumen from './components/Resumen';
 import Resultado from './components/Resultado';
+import Spinner from './components/Spinner';
 
 const Contenedor = styled.div`
   max-width: 600px;
@@ -20,6 +21,7 @@ function App() {
 
   const [resumen, setResumen] = useState({});
   const {datos, cotizacion} = resumen;
+  const [spinner, setSpinner] = useState(false);
 
   return (
     <Contenedor>
@@ -28,12 +30,15 @@ function App() {
       <ContenedorForm>
         <Formulario 
           setResumen={setResumen}
+          setSpinner={setSpinner}
         />
 
-        {datos ? 
-        <Fragment>
-        <Resumen datos={datos} /> <Resultado cotizacion={cotizacion} />
-        </Fragment>
+        {spinner ? <Spinner /> : null}
+
+        {!spinner && datos ? 
+          <Fragment>
+            <Resumen datos={datos} /> <Resultado cotizacion={cotizacion} />
+          </Fragment>
          : null}
       </ContenedorForm>
 
