@@ -1,8 +1,8 @@
 # Cotizador de Seguros - Insurance Price Calculator
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/385c7ade-dac5-4c09-b649-32a580b0468f/deploy-status)](https://app.netlify.com/sites/cotizador-seguros-carmelitu/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f03862cc-d7f1-48c3-bac4-9d5da79da39d/deploy-status)](https://app.netlify.com/sites/cotizador-react-carmelitu/deploys)
 
-Check it out here: https://cotizador-seguros-carmelitu.netlify.app/
+Check it out here: https://cotizador-react-carmelitu.netlify.app/
 
 Project made for a React course on Udemy.
 
